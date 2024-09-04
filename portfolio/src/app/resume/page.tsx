@@ -60,7 +60,7 @@ const about = {
 const experience = {
   icon: '\assets\resume-2\badge.svg',
   title: 'My experience',
-  description: '',
+  description: "I am AI Engineer with more then 1 year of experience in developing advanced machine learning and deep learning models. Skilled in creating custom AI solutions, specializing in NLP, generative AI, and neural network architectures.",
   items: [
     {
       company: 'Itsolera Pvt Ltd.',
@@ -79,36 +79,36 @@ const experience = {
 const education = {
   icon: '\assets\resume-2\cap.svg',
   title: 'My education',
-  description: '',
+  description: 'I am doing Bachelors in Computer Science from Federal Urdu University in the final year, with a strong foundation in AI and ML, further enhanced through specialized courses at Saylani Mass IT. Completed an AI & ML Course and currently pursuing advanced training in Generative AI & Chatbot Development. Previous academic achievements include Intermediate in Pre-Engineering  and Matriculation in Computer Science, and also completed Hifz ul Quran.',
   items: [
     {
       institution: 'Federal Urdu University Of Arts, Science & Technology',
-      position: 'Bachelors Of Science In Computer Science',
+      degree: 'Bachelors Of Science In Computer Science',
       duration: '2020 - 2024'
     },
     {
       institution: 'Saylani Mass IT',
-      position: 'Generative-Ai & Chatbot Development ',
+      degree: 'Generative-Ai & Chatbot Development ',
       duration: 'Present'
     },
     {
       institution: 'Saylani Mass IT',
-      position: 'Ai & Ml Course',
+      degree: 'Ai & Ml Course',
       duration: '2021 - 2022'
     },
     {
       institution: 'Government Superior Science College',
-      position: 'Intermediate In Pre Engineering',
+      degree: 'Intermediate In Pre Engineering',
       duration: '2018 - 2020'
     },
     {
       institution: 'Al Mumtaz Academy',
-      position: 'Matriculation In Computer Science',
+      degree: 'Matriculation In Computer Science',
       duration: '2016 - 2018'
     },
     {
       institution: 'Al Mumtaz Academy',
-      position: 'Hifz ul Quran',
+      degree: 'Hifz ul Quran',
       duration: '2013 - 2016'
     },
 
@@ -211,7 +211,7 @@ const Resume = () => {
     >
       <div className="container mx-auto">
         <Tabs defaultValue="experience"
-         className="flex flex-col xl:flex-row gap-[60px]">
+          className="flex flex-col xl:flex-row gap-[60px]">
           <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
             <TabsTrigger value="experience">Experience</TabsTrigger>
             <TabsTrigger value="education">Education</TabsTrigger>
@@ -224,15 +224,71 @@ const Resume = () => {
 
             {/* experience */}
             <TabsContent value="experience" className="w-full ">
-              <div>
-                <h3>{experience.title}</h3>
-                <p>{experience.description}</p>
+              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                <h3 className="text-4xl font-bold">
+                  {experience.title}
+                </h3>
+                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                  {experience.description}
+                </p>
+                <ScrollArea className="h-[400px]">
+                  <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
+                    {experience.items.map((item, index) => {
+                      return (
+                        <li key={index} className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
+                          <span className="text-accent">
+                            {item.duration}
+                          </span>
+                          <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
+                            {item.position}
+                          </h3>
+                          <div className="flex items-center gap-3">
+                            {/* dot */}
+                            <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                            <p className="text-white/60">
+                              {item.company}
+                            </p>
+                          </div>
+                        </li>)
+                    })}
+                  </ul>
+                </ScrollArea>
               </div>
             </TabsContent>
 
             {/* education */}
             <TabsContent value="education" className="w-full ">
-              Education
+              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                <h3 className="text-4xl font-bold">
+                  {education.title}
+                </h3>
+                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                  {education.description}
+                </p>
+                <ScrollArea className="h-[400px]">
+                  <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
+                    {education.items.map((item, index) => {
+                      return (
+                        <li key={index} className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
+                          <span className="text-accent">
+                            {item.duration}
+                          </span>
+                          <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
+                            {item.degree}
+                          </h3>
+                          <div className="flex items-center gap-3">
+                            {/* dot */}
+                            <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                            <p className="text-white/60">
+                              {item.institution}
+                            </p>
+                          </div>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </ScrollArea>
+              </div>
             </TabsContent>
 
             {/* skills */}

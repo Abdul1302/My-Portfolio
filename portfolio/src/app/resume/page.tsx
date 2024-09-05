@@ -25,7 +25,7 @@ import {
 // about data
 const about = {
   title: "About me",
-  description: '',
+  description: 'I’m Abdul Rehman, an AI and web development engineer with 1+ years of experience. Based in Pakistan, I’m fluent in both English and Urdu. Feel free to reach out to me from the following information.',
   info: [
     {
       fieldName: "Name",
@@ -40,12 +40,12 @@ const about = {
       fieldValue: "1+ Year"
     },
     {
-      fieldName: "Nationality",
-      fieldValue: "Pakistan"
-    },
-    {
       fieldName: "Email",
       fieldValue: "abdul.rehman132802@gmail.com"
+    },
+    {
+      fieldName: "Nationality",
+      fieldValue: "Pakistan"
     },
     {
       fieldName: "Languages",
@@ -118,7 +118,7 @@ const education = {
 // Skills Data
 const skills = {
   title: 'My skills',
-  description: 'I specialize in Artificial intellegence using Python, TensorFlow, and LangChain for AI projects. I work with React.js, Next.js, and TypeScript for frontend development. My expertise also includes data tools like NumPy, Pandas, and Scikit-learn, along with Tailwind CSS for design.',
+  description: 'I specialize in Artificial intellegence using Python, TensorFlow, and LangChain for AI projects. I work with Next.js, and TypeScript for frontend development. My expertise also includes data tools like NumPy, Pandas, and Scikit-learn, along with Tailwind CSS for design.',
   skillList: [
     {
       icon: <FaPython />,
@@ -176,10 +176,6 @@ const skills = {
       icon: <SiTailwindcss />,
       name: 'tailwind.css',
     },
-    {
-      icon: <FaNodeJs />,
-      name: 'node.js',
-    },
 
   ]
 }
@@ -210,9 +206,9 @@ const Resume = () => {
       className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
     >
       <div className="container mx-auto">
-        <Tabs 
-        defaultValue="experience"
-        className="flex flex-col xl:flex-row gap-[60px]">
+        <Tabs
+          defaultValue="experience"
+          className="flex flex-col xl:flex-row gap-[60px]">
           <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
             <TabsTrigger value="experience">Experience</TabsTrigger>
             <TabsTrigger value="education">Education</TabsTrigger>
@@ -271,7 +267,7 @@ const Resume = () => {
                     {education.items.map((item, index) => {
                       return (
                         <li key={index}
-                         className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
+                          className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
                           <span className="text-accent">
                             {item.duration}
                           </span>
@@ -296,17 +292,56 @@ const Resume = () => {
             {/* skills */}
             <TabsContent value="skills" className="w-full h-full ">
               <div className="flex flex-col gap-[30px]">
-                <div>
-                  <h3>{skills.title}</h3>
-                  <p>{skills.description}</p>
+                <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                  <h3 className="text-4xl font-bold">{skills.title}</h3>
+                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                    {skills.description}
+                  </p>
                 </div>
+                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:gap-[30px] gap-4">
+                  {skills.skillList.map((skill, index) => {
+                    return (
+                      <li key={index}>
+                        <TooltipProvider delayDuration={100}>
+                          <Tooltip>
+                            <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
+                              <div className="text-6xl group-hover:text-accent transition-all duration-300 ">
+                                {skill.icon}
+                              </div>
+                            </TooltipTrigger>
+                            <TooltipContent className="bg-white text-primary px-1 rounded-md capitalize">
+                              {skill.name}
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </li>
+                    )
+                  })}
+                </ul>
               </div>
             </TabsContent>
 
             {/* about me */}
-            <TabsContent value="about" className="w-full ">
-              About me
-            </TabsContent>
+            <TabsContent value="about" className="w-full text-center xl:text-left ">
+              <div className="flex flex-col gap-[30px]">
+                <h3 className="text-4xl font-bold">
+                  {about.title}
+                </h3>
+                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                  {about.description}
+                </p>
+                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0">
+                  {about.info.map((item, index) => {
+                    return (
+                      <li key={index} className="flex items-center justify-center xl:justify-start gap-4">
+                        <span className="text-white/60">{item.fieldName}</span>
+                        <span className="text-xl">{item.fieldValue}</span>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+            </TabsContent> 
           </div>
         </Tabs>
       </div>

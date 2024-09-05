@@ -11,7 +11,7 @@ const stats=[
         text:"Projects completed"
     },
     {
-        num:12,
+        num:14,
         text:"Proficient technologies"
     },
     {

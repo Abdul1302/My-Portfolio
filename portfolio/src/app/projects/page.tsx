@@ -1,6 +1,6 @@
 "use client";
 
-import { BsArrowDownRight } from "react-icons/bs"
+import { FiGithub } from "react-icons/fi"
 import Link from "next/link";
 import { text } from "stream/consumers";
 import { motion } from 'framer-motion'
@@ -8,26 +8,26 @@ import { motion } from 'framer-motion'
 const services = [
   {
     num: '01',
-    title: 'Custom AI Model Development',
-    description: ' Design and develop custom AI models tailored to specific needs and requirements, Implement and deploy machine learning and deep learning algorithms. ',
+    title: 'Story Creation & Completion Model',
+    description: 'Developed a model to transform descriptions into coherent stories using RAG and convert these stories into audio narrations. Performed prompt engineering using LLaMA-3 and integrated a pyttsx3 aibrary for text-to-speech task for high-quality audio output. This model can also be able to complete the un-completed stories.',
     href: ''
   },
   {
     num: '02',
-    title: 'Natural Language Processing (NLP)',
-    description: ' Develop NLP applications, including, chatbots, text summarization, language translation, and entity recognition.',
+    title: 'AI Healthcare Chatbot System',
+    description: 'This chatbot System is designed to provide healthcare support online, Guiding patients towards appropriate treatment options. Performed RAG and prompt engineering using LLaMA-3 as healthcare assistant, integrated a pyttsx laibrary model for audio output. Used map-api for finding the nearest hospital or clinic for the diseases.',
     href: ''
   },
   {
     num: '03',
-    title: 'Generative AI Solutions',
-    description: 'Create generative AI applications using techniques like GANs and RAG for content creation, image synthesis, and data augmentation.',
+    title: 'Company-Based Chatbot',
+    description: "Developed a company-specific chatbot utilizing the LLaMA-3 versatile model with the Groq API and RAG. The model is trained on the company's proprietary data, allowing it to deliver accurate, context-driven responses tailored to the organization's needs, enhancing internal communication and customer support capabilities.",
     href: ''
   },
   {
     num: '04',
-    title: 'Model Fine-Tuning and Optimization',
-    description: ' Fine-tune pre-trained models for specific tasks, optimizing hyperparameters and improving model accuracy and efficiency.',
+    title: 'AI Speech-to-Speech Model',
+    description: 'Developed a speech-to-speech chatbot using the LLaMA-3 versatile model for conversational responses. Integrated Whisper Large-V3 for speech-to-text conversion and the pyttsx3 library for seamless text-to-speech output. This model enhance the user experience in voice-based communication systems.',
     href: ''
   },
 
@@ -35,7 +35,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="min-h-[100vh] flex flex-col justify-center py-12 xl:py-0 ">
+    <section className="min-h-[200vh] flex flex-col justify-center py-12 xl:py-0 ">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -51,8 +51,8 @@ const Services = () => {
                   <div className="text-5xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500">
                     {service.num}
                   </div>
-                  <Link href={service.href} className="w-[70px] h-[70px] rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center hover:rotate-45 ">
-                    <BsArrowDownRight  className="text-primary text-3xl"/>
+                  <Link href={service.href} className="w-[70px] h-[70px] rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center hover:scale-110 ">
+                    <FiGithub  className="text-primary text-3xl"/>
                   </Link>
                 </div>
 
@@ -64,6 +64,11 @@ const Services = () => {
 
                 {/* border */}
                 <div className="border-b border-white/20 w-full"></div>
+
+                {/* Note */}
+                <div>
+                  
+                </div>
               </div>
             )
           })}
